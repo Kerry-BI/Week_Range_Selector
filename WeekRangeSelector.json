@@ -31,38 +31,43 @@
 		"color": {
 		  "type": "string",
 		  "description": "Background color",
-		  "default": "red"
+		  "default": ""
 		},
 		"startPeriod": {
 		  "type": "string",
 		  "description": "Start Period",
-		  "default": "01.2023"
+		  "default": ""
 		},
 		"endPeriod": {
 		  "type": "string",
 		  "description": "End Period",
-		  "default": "009.2023"
+		  "default": ""
 		},
 		"startYear": {
 		  "type": "string",
 		  "description": "Start Year",
-		  "default": "2023"
+		  "default": ""
 		},
 		"endYear": {
 		  "type": "string",
 		  "description": "End Year",
-		  "default": "2023"
+		  "default": ""
 		},
 		"startMonth": {
 		  "type": "string",
 		  "description": "Start Month",
-		  "default": "001"
+		  "default": ""
 		},
 		"endMonth": {
 		  "type": "string",
 		  "description": "End Month",
-		  "default": "009"
+		  "default": ""
 		},
+		"optionsAvailable": {
+			"type":"string[]",
+			"description": "what options are available to be selected by the user",
+			"default": ["YTD", "Detail","MAT", "QTD","MQT", "PTD"]
+		  },
 		"width": {
 		  "type": "integer",
 		  "default": 570
@@ -73,23 +78,6 @@
 		}
 	  },
 	  "methods": {
-  
-		"setShowApplyButton": {
-		  "description": "Set true to show apply button, set false to hide apply button.",
-		  "parameters": [
-			{
-			  "name": "newShowApplyButton",
-			  "type": "boolean",
-			  "description": "true/false to show"
-			}
-		  ],
-		  "body": "this.showApplyButton = newShowApplyButton;"
-		},
-		"getShowApplyButton": {
-		  "returnType": "boolean",
-		  "description": "Returns true or false if apply button is shown.",
-		  "body": "return this.showApplyButton;"
-		},
 		
 		"setColor": {
 		  "description": "Sets the background color.",
@@ -234,6 +222,22 @@
 		  "returnType": "string",
 		  "description": "Returns the selected time frame.",
 		  "body": "return this.selectedTimeFrame;"
+		},	
+		"setOptionsAvailable": {
+			"description": "Sets the array that feeds the options Available to a user.",
+			"parameters": [
+				{
+					"name": "newOptionsAvailable",
+					"type":"string[]",
+					"description": "The new array for the options available"
+				}
+			],
+			"body": "this.optionsAvailable = newOptionsAvailable;"
+		},
+		"getOptionsAvailable": {
+			"returnType": "string[]",
+			"description": "Returns the options available to the user.",
+			"body": "return this.optionsAvailable;"
 		}
 	  },
 	  "events": {
@@ -245,4 +249,5 @@
 		}
 	  }
 	}
+	
   

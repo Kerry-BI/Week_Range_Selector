@@ -2132,7 +2132,7 @@ border: 1px solid #ccc;
             var Counter = 0; //counts the grid boxes used
             var weekCount = 1; //counts the weeks being populated up to 52
 
-            const response = await fetch('/Week_Range_Selector/yearformat.json');
+            const response = await fetch('https://kerry-bi.github.io/Week_Range_Selector/yearformat.json');
             const jsonData = await response.json();
     
               // Process the JSON data here

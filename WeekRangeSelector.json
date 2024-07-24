@@ -1,10 +1,10 @@
 {
-	"id": "DrillpathBox",
+	"id": "WeekRangeSelector",
 	"version": "1.0.0",
-	"name": "Drill path box",
-	"description": "A container for the options of the drill path ",
-	"newInstancePrefix": "Drillpath_",
-	"icon": "https://www.sample.com/customwidgets/coloredbox/icon.png",
+	"name": "Week Range Selector",
+	"description": "A Week Range Selector to choose a custom week range ",
+	"newInstancePrefix": "WeekRangeSelector",
+	"icon": "https://kerry-bi.github.io/Week_Range_Selector/Image.PNG",
 	"vendor": "Danny Brassil",
 	"eula": "",
 	"license": "",
@@ -12,12 +12,17 @@
 		{
 			"kind": "main",
 			"tag": "week-range-selector",
-			"url": "/drillpathSettings_main.js",
+			"url": "/main2.js",
 			"integrity": "",
 			"ignoreIntegrity": true
 		 }
 	],
 	"properties": {
+		"options": {
+			"type":"string[]",
+			"description": "the options in the Week picker you want to make available options =['YTD','DET','MAT','QTD','MQT','PTD'] ",
+			"default": ["YTD", "DET","MAT", "QTD","MQT", "PTD"]
+		  },
 		"selectedAction": {
 		  "type": "string",
 		  "description": "holds a string representation of wheather apply or reset is clicked. options = 'apply' or 'reset' ",
@@ -53,14 +58,14 @@
 		  "description": "End Year",
 		  "default": ""
 		},
-		"startMonth": {
+		"startWeek": {
 		  "type": "string",
-		  "description": "Start Month",
+		  "description": "Start Week",
 		  "default": ""
 		},
-		"endMonth": {
+		"endWeek": {
 		  "type": "string",
-		  "description": "End Month",
+		  "description": "End Week",
 		  "default": ""
 		},
 		"optionsAvailable": {
@@ -70,15 +75,30 @@
 		  },
 		"width": {
 		  "type": "integer",
-		  "default": 570
+		  "default": 650
 		},
 		"height": {
 		  "type": "integer",
-		  "default": 270
+		  "default": 400
 		}
 	  },
 	  "methods": {
-		
+		"setOptions": {
+        "description": "Sets the array that feeds the options shown in the Week picker.",
+        "parameters": [
+          {
+            "name": "newOptions",
+            "type":"string[]",
+            "description": "The new array for the options in the Week picker "
+          }
+        ],
+        "body": "this.options = newOptions;"
+      },
+      "getOptions": {
+        "returnType": "string[]",
+        "description": "Returns the drillpath options that are shown in the Week picker.",
+        "body": "return this.options;"
+      },
 		"setColor": {
 		  "description": "Sets the background color.",
 		  "parameters": [
@@ -127,21 +147,21 @@
 		  "description": "Returns the end Period.",
 		  "body": "return this.endPeriod;"
 		},
-		"setStartMonth": {
-		  "description": "Sets the start Month.",
+		"setStartWeek": {
+		  "description": "Sets the start Week.",
 		  "parameters": [
 			{
-			  "name": "newStartMonth",
+			  "name": "newStartWeek",
 			  "type": "string",
-			  "description": "The new start month"
+			  "description": "The new start Week"
 			}
 		  ],
-		  "body": "this.startMonth = newStartMonth;"
+		  "body": "this.startWeek = newStartWeek;"
 		},
-		"getStartMonth": {
+		"getStartWeek": {
 		  "returnType": "string",
-		  "description": "Returns the start Month.",
-		  "body": "return this.startMonth;"
+		  "description": "Returns the start Week.",
+		  "body": "return this.startWeek;"
 		},
 		"setStartYear": {
 		  "description": "Sets the Start Year.",
@@ -159,21 +179,21 @@
 		  "description": "Returns the start year.",
 		  "body": "return this.startYear;"
 		},
-		"setEndMonth": {
-		  "description": "Sets the end Month.",
+		"setEndWeek": {
+		  "description": "Sets the end Week.",
 		  "parameters": [
 			{
-			  "name": "newEndMonth",
+			  "name": "newEndWeek",
 			  "type": "string",
-			  "description": "The new end month"
+			  "description": "The new end Week"
 			}
 		  ],
-		  "body": "this.endMonth = newEndMonth;"
+		  "body": "this.endWeek = newEndWeek;"
 		},
-		"getEndMonth": {
+		"getEndWeek": {
 		  "returnType": "string",
-		  "description": "Returns the end Month.",
-		  "body": "return this.endMonth;"
+		  "description": "Returns the end Week.",
+		  "body": "return this.endWeek;"
 		},
 		"setEndYear": {
 		  "description": "Sets the end Year.",
@@ -249,5 +269,5 @@
 		}
 	  }
 	}
-	
+
   
